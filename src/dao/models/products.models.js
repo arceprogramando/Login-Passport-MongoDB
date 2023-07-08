@@ -13,6 +13,7 @@ const productsSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true,
+    index: true, // Con index: true podria indexarlo
   },
   status: Boolean,
   stock: Number,
