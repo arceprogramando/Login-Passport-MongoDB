@@ -46,7 +46,7 @@ Contener todos los Managers (FileSystem y DB) en una carpeta llamada “Dao” �
 - NO ELIMINAR FileSystem de tu proyecto. ✔️
 - Implementar una vista nueva en handlebars llamada chat.handlebars, la cual permita implementar un chat como el visto en clase. Los mensajes deberán guardarse en una colección “messages” en mongo (no es necesario implementarlo en FileSystem). El formato es:  {user:correoDelUsuario, message: mensaje del usuario}✔️
 - Corroborar la integridad del proyecto para que todo funcione como lo ha hecho hasta ahora.✔️
-## (Nos encontramos aca )
+
 - Tendrás definidos todos los endpoints para poder trabajar con productos y carritos.✔️
 - Profesionalizar las consultas de productos con filtros, paginación y ordenamientos ✔️
 - Profesionalizar la gestión de carrito para implementar los últimos conceptos vistos.✔️
@@ -77,7 +77,7 @@ Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito
 
 Tutor : los productos los tenes en /realtimeproducts... cuando en la presentación de la entrega dice que tiene que estar en /products y te falta la vista /carts/:id 
 
-(Nos encontramos Aca)
+## (Nos encontramos aca )
 Tutor : Vi que te falta la implementacion de sessions. 
 
 
