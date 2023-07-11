@@ -12,3 +12,5 @@ router.post('/create', (req, res) => {
     { maxAge: 20000 },
   ).send();
 });
+
+export default router;

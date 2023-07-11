@@ -135,7 +135,7 @@ npm install nodemon -D
 
 ### Todos los paquetes en 1 
 ```sh
-npm install cors dotenv express express-handlebars express-routemap mongoose multer socket.io cookie-parser
+npm install cors dotenv express express-handlebars express-routemap mongoose multer socket.io cookie-parser cookie-session
 
 npm install crossenv nodemon -D
 
