@@ -9,7 +9,10 @@ const { PORT } = configObject;
 router.get('/', async (req, res) => {
   const findproducts = await productModel.find();
   const products = findproducts.map((product) => product.toObject());
+  const { cookie } = req;
+
   res.render('home', {
+    cookie,
     products,
     style: 'index.css',
     port: PORT,

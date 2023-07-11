@@ -108,6 +108,7 @@ Para realizar este Ejercicio
 - [dotenv] - para cargar variables de entorno desde archivos de configuración locales.
 - [mongoose-paginate-v2] - para controlar la paginacion de el proyecto
 - [cookie-parser] - Para el control de las cookies
+- [express-session]- Para el control de las sesiones activas
 ## Installation
 
 Express and nodemon requires [Node.js](https://nodejs.org/) to run.
@@ -218,6 +219,11 @@ npm install express-routemap
 npm install cookie-parser
 
 ```
+```sh
+npm install cookie-session
+
+```
+
 
 ```
 http://localhost:8080/
@@ -251,3 +257,4 @@ http://localhost:8080/api/carts/:cid
   [bootstrap]:<https://getbootstrap.com>
   [mongoose-paginate-v2]:<https://www.npmjs.com/package/mongoose-paginate-v2>
   [cookie-parser]:<https://www.npmjs.com/package/cookie-parser>
+  [cookie-session]:<https://www.npmjs.com/package/cookie-session>

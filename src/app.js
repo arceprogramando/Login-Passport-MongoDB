@@ -2,6 +2,8 @@
 
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
 import displayRoutes from 'express-routemap';
 import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
@@ -18,7 +20,12 @@ const env = configObject;
 
 // Middleware
 app.use(cors());
-
+app.use(cookieParser());
+app.use(session({
+  secret: 'secretCoder',
+  resave: true,
+  saveUninitialized: true,
+}));
 app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
