@@ -110,6 +110,7 @@ Para realizar este Ejercicio
 - [cookie-parser] - Para el control de las cookies
 - [express-session]- Para el control de las sesiones activas
 - [session-file-store] - Para el guardado de archivos de sessiones en local
+- [connect-mongo] - Para efectuar la configuracion de session store con la url de mongo
 ## Installation
 
 Express and nodemon requires [Node.js](https://nodejs.org/) to run.
@@ -136,7 +137,7 @@ npm install nodemon -D
 
 ### Todos los paquetes en 1 
 ```sh
-npm install cors dotenv express express-handlebars express-routemap mongoose multer socket.io cookie-parser cookie-session
+npm install cors dotenv express express-handlebars express-routemap mongoose multer socket.io cookie-parser cookie-session session-file-store connect-mongo
 
 npm install crossenv nodemon -D
 
@@ -229,6 +230,10 @@ npm install cookie-session
 npm install session-file-store
 
 ```
+```sh
+npm install connect-mongo
+
+```
 
 
 ```
@@ -265,3 +270,4 @@ http://localhost:8080/api/carts/:cid
   [cookie-parser]:<https://www.npmjs.com/package/cookie-parser>
   [cookie-session]:<https://www.npmjs.com/package/cookie-session>
   [session-file-store]:<https://www.npmjs.com/package/session-file-store>
+  [connect-mongo]:<https://www.npmjs.com/package/connect-mongo>
