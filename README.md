@@ -109,6 +109,7 @@ Para realizar este Ejercicio
 - [mongoose-paginate-v2] - para controlar la paginacion de el proyecto
 - [cookie-parser] - Para el control de las cookies
 - [express-session]- Para el control de las sesiones activas
+- [session-file-store] - Para el guardado de archivos de sessiones en local
 ## Installation
 
 Express and nodemon requires [Node.js](https://nodejs.org/) to run.
@@ -224,6 +225,11 @@ npm install cookie-session
 
 ```
 
+```sh
+npm install session-file-store
+
+```
+
 
 ```
 http://localhost:8080/
@@ -258,3 +264,4 @@ http://localhost:8080/api/carts/:cid
   [mongoose-paginate-v2]:<https://www.npmjs.com/package/mongoose-paginate-v2>
   [cookie-parser]:<https://www.npmjs.com/package/cookie-parser>
   [cookie-session]:<https://www.npmjs.com/package/cookie-session>
+  [session-file-store]:<https://www.npmjs.com/package/session-file-store>

@@ -2,6 +2,7 @@
 
 import express from 'express';
 import cors from 'cors';
+import fileStore from 'session-file-store';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import displayRoutes from 'express-routemap';
@@ -15,6 +16,7 @@ import mongoDBConnection from './dao/db/config/mongo.config.js';
 import cartRouter from './routes/carts.routes.js';
 import messageRouter from './routes/message.routes.js';
 
+const FileStorage = fileStore(session);
 const app = express();
 const env = configObject;
 
@@ -22,9 +24,13 @@ const env = configObject;
 app.use(cors());
 app.use(cookieParser());
 app.use(session({
+  // ttl = Time To Live. Vida de la sesion
+  // retries = Tiempo de veces que el servidor tratara de leer el archivos
+  // path = ruta donde vivira la carpeta para almacenar la sesion
+  store: new FileStorage({ path: './sessions', ttl: 100, retries: 0 }),
   secret: 'secretCoder',
-  resave: true,
-  saveUninitialized: true,
+  resave: false,
+  saveUninitialized: false,
 }));
 app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
