@@ -75,7 +75,9 @@ Contener todos los Managers (FileSystem y DB) en una carpeta llamada “Dao” �
   Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.
 Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito. 
 
-Tutor : los productos los tenes en /realtimeproducts... cuando en la presentación de la entrega dice que tiene que estar en /products y te falta la vista /carts/:id 
+Tutor : 
+- los productos los tenes en /realtimeproducts... cuando en la presentación de la entrega dice que tiene que estar en /products ✔️
+- y te falta la vista /carts/:id 
 
 ## (Nos encontramos aca )
 Tutor : Vi que te falta la implementacion de sessions. 
