@@ -78,6 +78,7 @@ router.get('/carts/:id', async (req, res) => {
     if (!cart) {
       return res.status(404).json({ error: 'Carrito no encontrado' });
     }
+    // eslint-disable-next-line no-console
     console.log(cart);
     return res.render('carts', {
       cart: cart.toObject(),

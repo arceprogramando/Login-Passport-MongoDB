@@ -77,7 +77,10 @@ Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito
 
 Tutor : 
 - los productos los tenes en /realtimeproducts... cuando en la presentación de la entrega dice que tiene que estar en /products ✔️
+
+
 - y te falta la vista /carts/:id 
+(Falta arreglar tema _id guardado como objeto de productos visible y no id de referenca )
 
 ## (Nos encontramos aca )
 Tutor : Vi que te falta la implementacion de sessions. 
