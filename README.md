@@ -36,7 +36,7 @@ Estoy haciendo esto para poder tener un ejemplo de como hacer un readme a la hor
 - Crear una vista “home.handlebars” la cual contenga una lista de todos los productos agregados hasta el momento ✔️
 - demás, crear una vista “realTimeProducts.handlebars”, la cual vivirá en el endpoint “/realtimeproducts” en nuestro views router, ésta contendrá la misma lista de productos, sin embargo, ésta trabajará con websockets. ✔️
 - Uso de sweetalert✔️
-- Si se desea hacer la conexión de socket emits con HTTP, deberás buscar la forma de utilizar el servidor io de Sockets dentro de la petición POST. ¿Cómo utilizarás un emit dentro del POST?(sin terminar)
+- Si se desea hacer la conexión de socket emits con HTTP, deberás buscar la forma de utilizar el servidor io de Sockets dentro de la petición POST. ¿Cómo utilizarás un emit dentro del POST?(sin terminar)❌❔
 - Continuar sobre el proyecto que has trabajado para tu ecommerce y configurar los siguientes elementos:
 - Agregar el modelo de persistencia de Mongo y mongoose a tu proyecto. ✔️
 - Crear una base de datos llamada “ecommerce” dentro de tu Atlas, crear sus colecciones “carts”, “messages”, “products” y sus respectivos schemas. (falta crear schemas de message y carts) ✔️
@@ -61,9 +61,6 @@ Contener todos los Managers (FileSystem y DB) en una carpeta llamada “Dao” �
 - query, el tipo de elemento que quiero buscar (es decir, qué filtro aplicar), en caso de no recibir query, realizar la búsqueda general ✔️
   sort: asc/desc, para realizar ordenamiento ascendente o descendente por precio, en caso de no recibir sort, no realizar ningún ordenamiento ✔️
 - Se deberá poder buscar productos por categoría o por disponibilidad, y se deberá poder realizar un ordenamiento de estos productos de manera ascendente o descendente por precio.✔️
-
-(Esto quedo sin terminar y ademas tengo que agregar las mejoras que dijo el tutor)
-
 - Además, agregar al router de carts los siguientes endpoints:
   DELETE api/carts/:cid/products/:pid deberá eliminar del carrito el producto seleccionado. ✔️
   PUT api/carts/:cid deberá actualizar el carrito con un arreglo de productos con el formato especificado arriba. ✔️
@@ -72,7 +69,7 @@ Contener todos los Managers (FileSystem y DB) en una carpeta llamada “Dao” �
 - Esta vez, para el modelo de Carts, en su propiedad products, el id de cada producto generado dentro del array tiene que hacer referencia al modelo de Products. Modificar la ruta /:cid para que al traer todos los productos, los traiga completos mediante un “populate”. De esta manera almacenamos sólo el Id, pero al solicitarlo podemos desglosar los productos asociados. ✔️
 - Crear una vista en el router de views ‘/products’ para visualizar todos los productos con su respectiva paginación. Cada producto mostrado puede resolverse de dos formas: ✔️
 - Llevar a una nueva vista con el producto seleccionado con su descripción completa, detalles de precio, categoría, etc. Además de un botón para agregar al carrito.
-- Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.(no se como hacer)
+- Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.(no se como hacer) ❌❔
 Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito.  ✔️
 
 Tutor : 
@@ -80,16 +77,17 @@ Tutor :
 
 
 - y te falta la vista /carts/:id 
-(Falta arreglar tema _id guardado como objeto de productos visible y no id de referenca )
+(Falta arreglar tema _id guardado como objeto de productos visible y no id de referenca )✔️
+
 
 ## (Nos encontramos aca )
-Tutor : Vi que te falta la implementacion de sessions. 
-
-
 > Espero que Los ejercicios se encuentren
 > resueltos de buena forma y espero 
 > que lo haya solucionado de forma optima
 
+¿Preguntas para tutor? o para arreglar despues
+-  Si se desea hacer la conexión de socket emits con HTTP, deberás buscar la forma de utilizar el servidor io de Sockets dentro de la petición POST. ¿Cómo utilizarás un emit dentro del POST?(sin terminar) ❔
+- Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.(no se como hacer) ❔
 
 ## Herramientas
 Mi repositorio publico es  [arceprogramando][arceprogramando]
