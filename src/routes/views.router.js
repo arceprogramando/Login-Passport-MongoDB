@@ -73,13 +73,12 @@ router.get('/chat', async (req, res) => {
 router.get('/carts/:id', async (req, res) => {
   try {
     const cartId = req.params.id;
-    const cart = await cartModel.findById(cartId);
+    const cart = await cartModel.findById(cartId).populate('products');
 
     if (!cart) {
       return res.status(404).json({ error: 'Carrito no encontrado' });
     }
-    // eslint-disable-next-line no-console
-    console.log(cart);
+
     return res.render('carts', {
       cart: cart.toObject(),
       style: 'index.css',

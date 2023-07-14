@@ -1,25 +1,17 @@
-import mongoose from 'mongoose';
-
-const { Schema, model, Types } = mongoose;
+import { Schema, model, Types } from 'mongoose';
 
 const cartsCollection = 'carts';
 
-const cartItemSchema = new Schema(
-  {
-    products: [
-      {
-        type: Types.ObjectId,
-        ref: 'products',
-        // Con index: true podria indexarlo
-      },
-    ],
-    quantity: {
-      type: Number,
-      required: true,
-    },
+const cartItemSchema = new Schema({
+  product: {
+    type: Types.ObjectId,
+    ref: 'products',
   },
-  { default: [] },
-);
+  quantity: {
+    type: Number,
+    required: true,
+  },
+});
 
 const cartSchema = new Schema({
   products: [cartItemSchema],

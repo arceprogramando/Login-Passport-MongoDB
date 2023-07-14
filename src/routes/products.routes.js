@@ -2,6 +2,7 @@
 import { Router } from 'express';
 import productModel from '../dao/models/products.models.js';
 import uploadMiddleware from '../services/uploader.js';
+
 // import productData from '../data/products.js'; //Insercion de mockaro products random
 
 const router = Router();
