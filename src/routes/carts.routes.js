@@ -119,7 +119,7 @@ router.put('/api/carts/:cid/products/:pid', async (req, res) => {
     const { cid, pid } = req.params;
     const { quantity } = req.body;
 
-    const cart = await CartModel.findById(cid);
+    const cart = await CartModel.findById({ _id: cid });
     if (!cart) {
       return res.status(404).json({ error: 'El carrito no existe' });
     }
@@ -161,7 +161,7 @@ router.delete('/api/carts/:cid/products/:pid', async (req, res) => {
   try {
     const { cid, pid } = req.params;
 
-    const cart = await CartModel.findById(cid);
+    const cart = await CartModel.findById({ _id: cid });
     if (!cart) {
       return res.status(404).json({ error: 'El carrito no existe' });
     }
