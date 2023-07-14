@@ -6,7 +6,7 @@ const router = Router();
 
 // Creacion Create ("C".R.U.D) Para crear un nuevo carrito
 
-router.post('/api/carts/', async (req, res) => {
+router.post('/api/carts', async (req, res) => {
   try {
     const { products } = req.body;
 

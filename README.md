@@ -242,14 +242,17 @@ npm install connect-mongo
 
 ```
 http://localhost:8080/
-http://localhost:8080/realtimeproducts
+http://localhost:8080/products
 http://localhost:8080/chat
+http://localhost:8080/carts/:id
 http://localhost:8080/api/products
-http://localhost:8080/api/products/:id
+http://localhost:8080/api/products/:pid
 [http://localhost:8080/api/products?limit=n?sort="asc"|"desc"?page=n]
 http://localhost:8080/api/carts
 http://localhost:8080/api/carts/:cid/product/:pid 
 http://localhost:8080/api/carts/:cid
+http://localhost:8080/api/chat
+
 ```
 
 
