@@ -9,7 +9,6 @@ const router = Router();
 router.post('/api/carts/', async (req, res) => {
   try {
     const { products } = req.body;
-    console.log(products);
 
     const cartItems = products.map((product) => ({
       product: product.product,
@@ -83,8 +82,7 @@ router.get('/api/carts', async (req, res) => {
 
 router.get('/api/carts/:id', async (req, res) => {
   try {
-    const { id } = req.params;
-    const cart = await CartModel.findById(id).populate('products.product');
+    const cart = await CartModel.findById({ _id: req.params.id }).populate('products.product');
 
     if (!cart) {
       return res.status(404).json({ error: 'Carrito no encontrado' });

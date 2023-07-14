@@ -2,7 +2,7 @@ import { Router } from 'express';
 import productModel from '../dao/models/products.models.js';
 import configObject from '../config/config.js';
 import messageModel from '../dao/models/message.models.js';
-import cartModel from '../dao/models/carts.models.js';
+import CartModel from '../dao/models/carts.models.js';
 
 const router = Router();
 const { PORT } = configObject;
@@ -72,8 +72,9 @@ router.get('/chat', async (req, res) => {
 
 router.get('/carts/:id', async (req, res) => {
   try {
-    const cartId = req.params.id;
-    const cart = await cartModel.findById(cartId).populate('products');
+    const cart = await CartModel.findById({ _id: req.params.id }).populate('products.product');
+    // eslint-disable-next-line no-console
+    console.log(cart);
 
     if (!cart) {
       return res.status(404).json({ error: 'Carrito no encontrado' });
@@ -81,10 +82,10 @@ router.get('/carts/:id', async (req, res) => {
 
     return res.render('carts', {
       cart: cart.toObject(),
-      style: 'index.css',
+      style: '../../css/index.css',
     });
   } catch (error) {
-    return res.status(500).json({ error: 'Error al obtener el carrito' });
+    return res.status(500).json({ error: `Error al obtener el carrito ${error}` });
   }
 });
 
