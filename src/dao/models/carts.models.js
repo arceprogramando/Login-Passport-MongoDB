@@ -14,7 +14,10 @@ const cartItemSchema = new Schema({
 });
 
 const cartSchema = new Schema({
-  products: [cartItemSchema],
+  products: {
+    type: [cartItemSchema],
+    default: [],
+  },
 });
 
 const CartModel = model(cartsCollection, cartSchema);
