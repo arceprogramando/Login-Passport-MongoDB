@@ -2,9 +2,10 @@
 
 import express from 'express';
 import cors from 'cors';
-import fileStore from 'session-file-store';
+// import fileStore from 'session-file-store';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
+import mongoStore from 'connect-mongo';
 import displayRoutes from 'express-routemap';
 import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
@@ -19,22 +20,11 @@ import messageRouter from './routes/message.routes.js';
 // Cookies
 import cookiesRouter from './routes/cookies.routes.js';
 
-const FileStorage = fileStore(session);
 const app = express();
 const env = configObject;
-
 // Middleware
 app.use(cors());
 app.use(cookieParser());
-app.use(session({
-  // ttl = Time To Live. Vida de la sesion
-  // retries = Tiempo de veces que el servidor tratara de leer el archivos
-  // path = ruta donde vivira la carpeta para almacenar la sesion
-  store: new FileStorage({ path: './sessions', ttl: 100, retries: 0 }),
-  secret: 'secretCoder',
-  resave: false,
-  saveUninitialized: false,
-}));
 
 app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
@@ -46,6 +36,21 @@ app.set('view engine', 'handlebars');
 
 app.set('PORT', env.PORT || 8080);
 app.set('NODE_ENV', env.NODE_ENV || 'development');
+
+app.use(
+  session({
+    store: mongoStore.create({
+      mongoUrl: env.DB_CNN,
+      mongoOptions: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      },
+      ttl: 50,
+    }),
+    secret: 'mi_clave_secreta',
+    saveUninitialized: false,
+  }),
+);
 
 const server = app.listen(app.get('PORT'), () => {
 // eslint-disable-next-line no-console
