@@ -81,6 +81,16 @@ Tutor :
 
 
 ## (Nos encontramos aca )
+### Consignas
+#### Aspectos a incluir
+
+- Debera contar con todas las vistas realizadas en el hands on lab, asi tambien como las rutas de router para procesar el registro y el login.
+- Una vez completado el login , realizar la redireccion directamente a la vista de productos.
+- Agregar a la vista de productos un mensaje de bienvenida con los datos del usuario.
+- Agregar un sistema de roles de manera que si colocamos el login como correo adminCoder@coder.com y la contraseña adminCod3r123, el usuario de la sesion ademas tenga un campo.
+- Todos los usuarios que no sean admin debera contar con un rol "usuario".
+- Implementar boton de "logout" para destruir la sesion y redirigir a la vista de login 
+
 > Espero que Los ejercicios se encuentren
 > resueltos de buena forma y espero 
 > que lo haya solucionado de forma optima
@@ -88,6 +98,8 @@ Tutor :
 ¿Preguntas para tutor? o para arreglar despues
 -  Si se desea hacer la conexión de socket emits con HTTP, deberás buscar la forma de utilizar el servidor io de Sockets dentro de la petición POST. ¿Cómo utilizarás un emit dentro del POST?(sin terminar) ❔
 - Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.(no se como hacer) ❔
+- Me falta practicar aggregate a mis queries (minuto 50 clase mongo avanzado 2 esta la explicacion)
+- Las rutas para renderizar tengo que acomodarlas con la pagination  (minuto 23 parte 2 mongo avanzado 2 esta la explicacion )
 
 ## Herramientas
 Mi repositorio publico es  [arceprogramando][arceprogramando]

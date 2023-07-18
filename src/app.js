@@ -16,6 +16,9 @@ import mongoDBConnection from './dao/db/config/mongo.config.js';
 import cartRouter from './routes/carts.routes.js';
 import messageRouter from './routes/message.routes.js';
 
+// Cookies
+import cookiesRouter from './routes/cookies.routes.js';
+
 const FileStorage = fileStore(session);
 const app = express();
 const env = configObject;
@@ -32,6 +35,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
+
 app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -59,7 +63,7 @@ app.use('/', viewsRouter);
 app.use('/', productRouter);
 app.use('/', cartRouter);
 app.use('/', messageRouter);
-
+app.use('/', cookiesRouter);
 const io = new Server(server);
 
 io.on('connection', (socket) => {
