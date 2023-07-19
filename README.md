@@ -11,7 +11,7 @@ Estoy haciendo esto para poder tener un ejemplo de como hacer un readme a la hor
 - Router y Multer✔️
 - Motores de plantillas✔️
 - Primera practica integradora ((>‿◠)✌) ✔️
-- Segunda Preentrega del Proyecto Final((>‿◠)✌) (no finalizado aun )
+- Segunda Preentrega del Proyecto Final((>‿◠)✌) (Finalizada en este proyecto)
 - ✨Login Por Formulario ✨
 
 ## Desafio Entregable
