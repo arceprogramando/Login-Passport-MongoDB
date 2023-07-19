@@ -5,7 +5,7 @@ const router = Router();
 
 // Create ("C".R.U.D) Registrar usuario
 
-router.post('/register', async (req, res) => {
+router.post('/api/session/register', async (req, res) => {
   try {
     const { body } = req;
     const newUser = await userModel.create(body);
@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
 
 // Create ("C".R.U.D) Buscar al usuario en la base de datos
 
-router.post('/login', async (req, res) => {
+router.post('/api/session/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     const { session } = req;
@@ -46,12 +46,7 @@ router.post('/login', async (req, res) => {
       password: '',
     };
 
-    const newLocal = req.session?.user?.age || findUser.age;
-
-    return res.render('profile', {
-      last_name: req.session?.user?.last_name || findUser.last_name,
-      email: newLocal,
-    });
+    return res.redirect('/products');
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log('🚀 ~ file: session.routes.js:57 ~ router.login ~ error:', error);
@@ -59,13 +54,11 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/logout', (req, res) => {
+router.get('/api/session/logout', (req, res) => {
   req.session.destroy((error) => {
     if (!error) {
       return res.redirect('/login');
     }
-    // eslint-disable-next-line no-console
-    console.log('🚀 ~ file: session.routes.js:68 ~ router.get ~ error:', error);
     return res.status(500).json({ message: 'Error al cerrar sesión' });
   });
 });

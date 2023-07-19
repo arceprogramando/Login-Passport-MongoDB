@@ -7,7 +7,7 @@ router.get('/api/cookie', (req, res) => {
   res.cookie('CoderCookie', 'Esta es una cookie muy poderosa', { maxAge: 10000, signed: true }).send('cookie');
 });
 
-router.post('/create', (req, res) => {
+router.post('/api/cookies/create', (req, res) => {
   // eslint-disable-next-line no-console
   console.log('Body**** ', req.body);
 

@@ -84,8 +84,8 @@ Tutor :
 ### Consignas
 #### Aspectos a incluir
 
-- Debera contar con todas las vistas realizadas en el hands on lab, asi tambien como las rutas de router para procesar el registro y el login.
-- Una vez completado el login , realizar la redireccion directamente a la vista de productos.
+- Debera contar con todas las vistas realizadas en el hands on lab, asi tambien como las rutas de router para procesar el registro y el login.✔️
+- Una vez completado el login , realizar la redireccion directamente a la vista de productos.✔️
 - Agregar a la vista de productos un mensaje de bienvenida con los datos del usuario.
 - Agregar un sistema de roles de manera que si colocamos el login como correo adminCoder@coder.com y la contraseña adminCod3r123, el usuario de la sesion ademas tenga un campo.
 - Todos los usuarios que no sean admin debera contar con un rol "usuario".
@@ -98,7 +98,7 @@ Posteriormente, se colocarán las credenciales de manera correcta, esto para cor
 - La vista de productos tendrá en una parte de arriba de la página el mensaje “Bienvenido” seguido de los datos del usuario que se haya logueado (NO mostrar password). Es importante que se visualice el “rol” para ver que aparezca “usuario” o “user”
 - Se presionará el botón de logout y se destruirá la sesión, notando cómo nos redirige a login.
 Se ingresarán las credenciales específicas de admin indicadas en las diapositivas, el login debe redirigir correctamente y mostrar en los datos del rol: “admin” haciendo referencia a la correcta gestión de roles. 
-- Se revisará que el admin NO viva en base de datos, sino que sea una validación que se haga de manera interna en el código.
+- Se revisará que edmin NO viva en base de datos, sino que sea una validaciól an que se haga de manera interna en el código.
 
 > Espero que Los ejercicios se encuentren
 > resueltos de buena forma y espero 

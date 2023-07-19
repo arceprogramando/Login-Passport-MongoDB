@@ -1,22 +1,20 @@
 import { Router } from 'express';
 import productModel from '../dao/models/products.models.js';
-import configObject from '../config/config.js';
 import messageModel from '../dao/models/message.models.js';
 import CartModel from '../dao/models/carts.models.js';
+import authMdw from '../middlewares/auth.middleware.js';
 
 const router = Router();
-const { PORT } = configObject;
 
 router.get('/', async (req, res) => {
   const findproducts = await productModel.find();
   const products = findproducts.map((product) => product.toObject());
   const { cookie } = req;
 
-  res.render('home', {
-    cookie,
+  res.render('login', {
     products,
     style: 'index.css',
-    port: PORT,
+    cookie,
   });
 });
 
@@ -42,7 +40,9 @@ router.get('/products', async (req, res) => {
       docs, hasPrevPage, hasNextPage, nextPage, prevPage,
     } = await productModel.paginate(query, options);
 
+    const { user } = req.session;
     res.render('products', {
+      user,
       products: docs,
       style: 'index.css',
       page,
@@ -85,6 +85,21 @@ router.get('/carts/:id', async (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: `Error al obtener el carrito ${error}` });
   }
+});
+
+router.get('/register', async (req, res) => {
+  res.render('register');
+});
+
+router.get('/login', async (req, res) => {
+  res.render('login');
+});
+
+router.get('/profile', authMdw, async (req, res) => {
+  const { user } = req.session;
+  res.render('profile', {
+    user,
+  });
 });
 
 export default router;

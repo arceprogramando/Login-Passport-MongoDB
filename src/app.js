@@ -16,7 +16,7 @@ import productRouter from './routes/products.routes.js';
 import mongoDBConnection from './dao/db/config/mongo.config.js';
 import cartRouter from './routes/carts.routes.js';
 import messageRouter from './routes/message.routes.js';
-
+import sessionRoutes from './routes/session.routes.js';
 // Cookies
 import cookiesRouter from './routes/cookies.routes.js';
 
@@ -49,6 +49,7 @@ app.use(
     }),
     secret: 'mi_clave_secreta',
     saveUninitialized: false,
+    resave: false,
   }),
 );
 
@@ -65,10 +66,12 @@ const server = app.listen(app.get('PORT'), () => {
 mongoDBConnection();
 
 app.use('/', viewsRouter);
-app.use('/', productRouter);
+app.use('/api/products', productRouter);
 app.use('/', cartRouter);
 app.use('/', messageRouter);
 app.use('/', cookiesRouter);
+app.use('/', sessionRoutes);
+
 const io = new Server(server);
 
 io.on('connection', (socket) => {
