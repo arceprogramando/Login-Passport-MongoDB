@@ -7,14 +7,8 @@ import authMdw from '../middlewares/auth.middleware.js';
 const router = Router();
 
 router.get('/', async (req, res) => {
-  const findproducts = await productModel.find();
-  const products = findproducts.map((product) => product.toObject());
-  const { cookie } = req;
-
   res.render('login', {
-    products,
     style: 'index.css',
-    cookie,
   });
 });
 
@@ -91,9 +85,9 @@ router.get('/register', async (req, res) => {
   res.render('register');
 });
 
-router.get('/login', async (req, res) => {
-  res.render('login');
-});
+// router.get('/login', async (req, res) => {
+//   res.render('login');
+// });
 
 router.get('/profile', authMdw, async (req, res) => {
   const { user } = req.session;
