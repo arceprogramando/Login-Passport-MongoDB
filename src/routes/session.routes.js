@@ -5,7 +5,7 @@ const router = Router();
 
 // Create ("C".R.U.D) Registrar usuario
 
-router.post('/api/session/register', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const { body } = req;
     const newUser = await userModel.create(body);
@@ -22,7 +22,7 @@ router.post('/api/session/register', async (req, res) => {
 
 // Create ("C".R.U.D) Buscar al usuario en la base de datos
 
-router.post('/api/session/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     const { session } = req;
@@ -54,7 +54,7 @@ router.post('/api/session/login', async (req, res) => {
   }
 });
 
-router.get('/api/session/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy((error) => {
     if (!error) {
       return res.redirect('/login');

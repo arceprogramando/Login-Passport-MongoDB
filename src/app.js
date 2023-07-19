@@ -70,7 +70,7 @@ app.use('/api/products', productRouter);
 app.use('/api/carts', cartRouter);
 app.use('/api/chat', messageRouter);
 app.use('/api/cookies', cookiesRouter);
-app.use('/', sessionRoutes);
+app.use('/api/session', sessionRoutes);
 
 const io = new Server(server);
 
