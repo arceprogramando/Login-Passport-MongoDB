@@ -1,6 +1,6 @@
 # Login Por Formulario
 ## _Felipe Antonio Aleman Arce_
-### Ejercicio 8 entregable , Login Por Formulario ( No Finalizada)
+### Ejercicio 8 entregable , Login Por Formulario
 [![Coderhouse](https://res.cloudinary.com/hdsqazxtw/image/upload/v1570710978/coderhouse.jpg)](https://github.com/arceprogramando)
 
 Estoy haciendo esto para poder tener un ejemplo de como hacer un readme a la hora de mostrar un proyecto
@@ -234,7 +234,7 @@ npm install dotenv
 
 ```
 
-Onceavo instalamos [express-routemap](https://www.npmjs.com/package/express-routemap) para poder mapear nuestro conjunto de rutas a utilizar o en uso
+Undécimo instalamos [express-routemap](https://www.npmjs.com/package/express-routemap) para poder mapear nuestro conjunto de rutas a utilizar o en uso
 
 
 ```sh
@@ -242,19 +242,27 @@ npm install express-routemap
 
 ```
 
+Duodécimo instalamos [cookie-parser](https://www.npmjs.com/package/cookie-parser) que se utiliza para analizar las cookies en las solicitudes entrantes y hacerlas accesibles en req.cookies.
+
 ```sh
 npm install cookie-parser
 
 ```
+
+Decimotercero instalamos [express-session](https://www.npmjs.com/package/express-session) que se utiliza para manejar sesiones en Express y permite almacenar y acceder a datos de sesión en cada solicitud a través de req.session
+
 ```sh
-npm install cookie-session
+npm install express-session
 
 ```
+Decimocuarto instalamos [session-file-store](https://www.npmjs.com/package/session-file-store) para manejar como archivos en session las sesiones conectadas a base de datos
 
 ```sh
 npm install session-file-store
 
 ```
+
+DecimoQuinta instalamos [connect-mongo](https://www.npmjs.com/package/connect-mongo) que es una dependencia importante para conectar las sesiones de Express con MongoDB
 ```sh
 npm install connect-mongo
 
@@ -266,6 +274,8 @@ http://localhost:8080/
 http://localhost:8080/products
 http://localhost:8080/chat
 http://localhost:8080/carts/:id
+http://localhost:8080/register
+http://localhost:8080/profile
 http://localhost:8080/api/products
 http://localhost:8080/api/products/:pid
 [http://localhost:8080/api/products?limit=n?sort="asc"|"desc"?page=n]
@@ -273,7 +283,15 @@ http://localhost:8080/api/carts
 http://localhost:8080/api/carts/:cid/product/:pid 
 http://localhost:8080/api/carts/:cid
 http://localhost:8080/api/chat
-
+http://localhost:8080/api/cookies
+http://localhost:8080/api/cookies/create
+http://localhost:8080/api/cookies/getcookies
+http://localhost:8080/api/cookies/delete
+http://localhost:8080/api/session/
+http://localhost:8080/api/session/register
+http://localhost:8080/api/session/login
+http://localhost:8080/api/session/welcome
+http://localhost:8080/api/session/logout
 ```
 
 
