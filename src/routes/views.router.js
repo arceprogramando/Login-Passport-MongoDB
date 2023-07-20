@@ -34,9 +34,17 @@ router.get('/products', async (req, res) => {
       docs, hasPrevPage, hasNextPage, nextPage, prevPage,
     } = await productModel.paginate(query, options);
 
-    const { user } = req.session;
+    let visit;
+    if (req.session.counter) {
+      req.session.counter += 1;
+      visit = `Se ha visitado el sitio ${req.session.counter} veces`;
+    } else {
+      req.session.counter = 1;
+      visit = 'Se ha visitado el sitio 1 vez';
+    }
+
     res.render('products', {
-      user,
+      visit,
       products: docs,
       style: 'index.css',
       page,
@@ -44,6 +52,7 @@ router.get('/products', async (req, res) => {
       hasNextPage,
       prevPage,
       nextPage,
+      user: req.session.user,
     });
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener los productos' });

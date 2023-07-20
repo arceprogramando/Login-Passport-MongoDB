@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-const collectionName = 'Usuarios';
+const collectionName = 'session';
 
 const userSchema = new Schema({
   first_name: String,
