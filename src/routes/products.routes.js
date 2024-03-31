@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Router } from 'express';
 import productModel from '../models/products.models.js';
-import uploadMiddleware from '../services/uploader.js';
+import uploadMiddleware from '../config/uploader.js';
 
 const router = Router();
 
