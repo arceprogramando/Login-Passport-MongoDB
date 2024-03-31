@@ -1,8 +1,5 @@
-// Server
-
 import express from 'express';
 import cors from 'cors';
-// import fileStore from 'session-file-store';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import mongoStore from 'connect-mongo';
@@ -17,12 +14,10 @@ import mongoDBConnection from './dao/db/config/mongo.config.js';
 import cartRouter from './routes/carts.routes.js';
 import messageRouter from './routes/message.routes.js';
 import sessionRoutes from './routes/session.routes.js';
-// Cookies
 import cookiesRouter from './routes/cookies.routes.js';
 
 const app = express();
 const env = configObject;
-// Middleware
 app.use(cors());
 app.use(cookieParser());
 
@@ -54,11 +49,8 @@ app.use(
 );
 
 const server = app.listen(app.get('PORT'), () => {
-// eslint-disable-next-line no-console
   console.log(`=Encendido servidor en puerto ${app.get('PORT')}= \n====== http://localhost:${app.get('PORT')}/ =====`);
-  // eslint-disable-next-line no-console
   console.log(`==========ENV:${app.get('NODE_ENV')}==========`);
-  // eslint-disable-next-line no-console
   console.log('===============^^^^^===============');
   displayRoutes(app);
 });
@@ -75,10 +67,8 @@ app.use('/api/session', sessionRoutes);
 const io = new Server(server);
 
 io.on('connection', (socket) => {
-  // eslint-disable-next-line no-console
   console.log('Saludo desde el servidor');
   socket.on('message', (data) => {
-    // eslint-disable-next-line no-console
     console.log(data);
   });
 });

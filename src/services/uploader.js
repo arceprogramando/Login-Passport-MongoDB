@@ -6,7 +6,6 @@ const uploadPath = join(__dirname, 'public', 'upload');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    // eslint-disable-next-line no-console
     console.log('Destination:', uploadPath);
     cb(null, uploadPath);
   },
