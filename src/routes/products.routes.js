@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Router } from 'express';
-import productModel from '../dao/models/products.models.js';
+import productModel from '../models/products.models.js';
 import uploadMiddleware from '../services/uploader.js';
 
 const router = Router();
@@ -9,9 +9,7 @@ const router = Router();
 
 router.post('/', uploadMiddleware, async (req, res) => {
   try {
-    const {
-      title, description, code, price, status, stock, category,
-    } = req.body;
+    const { title, description, code, price, status, stock, category } = req.body;
     let thumbnails = null;
 
     if (req.file) {
@@ -49,9 +47,7 @@ router.post('/', uploadMiddleware, async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const {
-      limit, page = 1, sort, query,
-    } = req.query;
+    const { limit, page = 1, sort, query } = req.query;
 
     let filter = {};
     if (query) {
@@ -124,25 +120,14 @@ router.get('/:pid', async (req, res) => {
 router.put('/:pid', uploadMiddleware, async (req, res) => {
   try {
     const { pid } = req.params;
-    const {
-      title, description, code, price, status, stock, category,
-    } = req.body;
+    const { title, description, code, price, status, stock, category } = req.body;
 
     let thumbnails = null;
     if (req.file) {
       thumbnails = `/upload/${req.file.filename}`;
     }
 
-    if (
-      !title
-      || !description
-      || !code
-      || !price
-      || !status
-      || !stock
-      || !category
-      || !thumbnails
-    ) {
+    if (!title || !description || !code || !price || !status || !stock || !category || !thumbnails) {
       return res.status(400).json({
         error: 'Todos los campos son requeridos',
       });

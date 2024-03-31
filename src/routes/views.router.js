@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import productModel from '../dao/models/products.models.js';
-import messageModel from '../dao/models/message.models.js';
-import CartModel from '../dao/models/carts.models.js';
+import productModel from '../models/products.models.js';
+import messageModel from '../models/message.models.js';
+import CartModel from '../models/carts.models.js';
 import authMdw from '../middlewares/auth.middleware.js';
 
 const router = Router();
@@ -30,9 +30,7 @@ router.get('/products', async (req, res) => {
       options.sort = { price: -1 };
     }
 
-    const {
-      docs, hasPrevPage, hasNextPage, nextPage, prevPage,
-    } = await productModel.paginate(query, options);
+    const { docs, hasPrevPage, hasNextPage, nextPage, prevPage } = await productModel.paginate(query, options);
 
     let visit;
     if (req.session.counter) {
