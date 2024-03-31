@@ -45,6 +45,51 @@ class ProductController {
       return res.status(500).send({ error: error.message });
     }
   };
+
+  getAllProduct = async (req, res) => {
+    try {
+      const { limit, page = 1, sort, query } = req.query;
+
+      let filter = {};
+      if (query) filter = { category: query };
+
+      const sortOption = sort === 'asc' ? { price: 1 } : { price: -1 };
+
+      let productsQuery = this.productService.getAllProduct(filter, sortOption);
+
+      if (limit) {
+        const parsedLimit = Number(limit);
+        productsQuery = productsQuery
+          .sort(sortOption)
+          .skip((page - 1) * parsedLimit)
+          .limit(parsedLimit);
+      }
+
+      const products = await productsQuery;
+      const totalCount = await this.productService.countDocuments(filter);
+      const totalPages = limit ? Math.ceil(totalCount / parseInt(limit, 10)) : 1;
+
+      const hasPrevPage = page > 1;
+      const hasNextPage = page < totalPages;
+      const prevLink = hasPrevPage ? `/api/products?limit=${limit}&page=${page - 1}` : null;
+      const nextLink = hasNextPage ? `/api/products?limit=${limit}&page=${page + 1}` : null;
+
+      return res.json({
+        status: 'success',
+        payload: products,
+        totalPages,
+        prevPage: hasPrevPage ? page - 1 : null,
+        nextPage: hasNextPage ? page + 1 : null,
+        page,
+        hasPrevPage,
+        hasNextPage,
+        prevLink,
+        nextLink,
+      });
+    } catch (error) {
+      return res.status(500).json({ status: 'error', error: 'Error interno del servidor' });
+    }
+  };
 }
 
 export default ProductController;
