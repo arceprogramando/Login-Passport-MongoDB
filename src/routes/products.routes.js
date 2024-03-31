@@ -11,21 +11,7 @@ router.post('/', uploadMiddleware, productController.createProduct);
 
 router.get('/', productController.getAllProduct);
 
-// Lectura Read (C."R".U.D) por id usando findByID de mongoose
-
-router.get('/:pid', async (req, res) => {
-  try {
-    const product = await productModel.findById({ _id: req.params.pid });
-
-    if (product) {
-      res.status(200).json(product);
-    } else {
-      res.status(404).json({ error: 'El producto no existe' });
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener el producto con el id solicitado' });
-  }
-});
+router.get('/:pId', productController.getProductById);
 
 // Actualizacion Update (C.R."U".D)
 

@@ -90,6 +90,17 @@ class ProductController {
       return res.status(500).json({ status: 'error', error: 'Error interno del servidor' });
     }
   };
+
+  getProductById = async (req, res) => {
+    try {
+      const { pId } = req.params;
+      const product = await this.productService.getProductById(pId);
+
+      res.status(product ? 200 : 404).json(product || { error: 'El producto no existe' });
+    } catch (error) {
+      res.status(500).json({ error: 'Error al obtener el producto con el id solicitado' });
+    }
+  };
 }
 
 export default ProductController;
