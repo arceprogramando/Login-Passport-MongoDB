@@ -11,7 +11,6 @@ import __dirname from './utils.js';
 import viewsRouter from './routes/views.router.js';
 import productRouter from './routes/products.routes.js';
 import mongoDBConnection from './dao/db/config/mongo.config.js';
-import cartRouter from './routes/carts.routes.js';
 import messageRouter from './routes/message.routes.js';
 import sessionRoutes from './routes/session.routes.js';
 import cookiesRouter from './routes/cookies.routes.js';
@@ -59,7 +58,6 @@ mongoDBConnection();
 
 app.use('/', viewsRouter);
 app.use('/api/products', productRouter);
-app.use('/api/carts', cartRouter);
 app.use('/api/chat', messageRouter);
 app.use('/api/cookies', cookiesRouter);
 app.use('/api/session', sessionRoutes);
