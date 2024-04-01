@@ -21,6 +21,24 @@ class SessionService {
       throw new Error('Error al aumentar la sesión en el servicio');
     }
   };
+
+  findUserByEmail = async (email) => {
+    try {
+      const getUserByEmail = await this.sessionDao.findUserByEmail(email);
+      return getUserByEmail;
+    } catch (error) {
+      throw new Error('Error al aumentar la sesión en el servicio');
+    }
+  };
+
+  registerUser = async (body) => {
+    try {
+      const registerUser = await this.sessionDao.registerUser(body);
+      return registerUser;
+    } catch (error) {
+      throw new Error('Error al registrar al usuario en el servicio');
+    }
+  };
 }
 
 export default SessionService;

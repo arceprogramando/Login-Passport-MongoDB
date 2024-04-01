@@ -8,20 +8,7 @@ const sessionController = new SessionController();
 
 router.get('/', sessionController.getSession);
 
-router.post('/register', async (req, res) => {
-  try {
-    const { body } = req;
-    const newUser = await userModel.create(body);
-    // eslint-disable-next-line no-console
-    console.log('🚀 ~ file: session.routes.js:13 ~ router.post ~ newUser:', newUser);
-    req.session.user = { ...body };
-    return res.render('login');
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log('🚀 ~ file: session.routes.js:22 ~ router.post ~ error:', error);
-    return res.status(500).json({ message: 'Hubo un error al registrar el usuario' });
-  }
-});
+router.post('/register', sessionController.registerUser);
 
 router.post('/login', async (req, res) => {
   try {
