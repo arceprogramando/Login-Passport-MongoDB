@@ -46,6 +46,24 @@ class SessionController {
       return res.status(401).json({ message: 'Error al entrar al login' });
     }
   };
+
+  logoutUser = async (req, res) => {
+    try {
+      await new Promise((resolve, reject) => {
+        req.session.destroy((error) => {
+          if (error) {
+            reject(new Error('Error al cerrar sesión'));
+          } else {
+            resolve();
+          }
+        });
+      });
+
+      return res.redirect('/');
+    } catch (error) {
+      return res.status(500).json({ message: 'Error al cerrar la sesión' });
+    }
+  };
 }
 
 export default SessionController;

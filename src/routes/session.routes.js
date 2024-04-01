@@ -11,13 +11,6 @@ router.post('/register', sessionController.registerUser);
 
 router.post('/login', sessionController.LoginUser);
 
-router.get('/logout', (req, res) => {
-  req.session.destroy((error) => {
-    if (!error) {
-      return res.redirect('/');
-    }
-    return res.status(500).json({ status: 'Error al cerrar sesión', body: error });
-  });
-});
+router.get('/logout', sessionController.logoutUser);
 
 export default router;
