@@ -11,9 +11,7 @@ import __dirname from './utils.js';
 import viewsRouter from './routes/views.router.js';
 import productRouter from './routes/products.routes.js';
 import mongoDBConnection from './dao/db/config/mongo.config.js';
-import messageRouter from './routes/message.routes.js';
 import sessionRoutes from './routes/session.routes.js';
-import cookiesRouter from './routes/cookies.routes.js';
 
 const app = express();
 const env = configObject;
@@ -58,14 +56,11 @@ mongoDBConnection();
 
 app.use('/', viewsRouter);
 app.use('/api/products', productRouter);
-app.use('/api/chat', messageRouter);
-app.use('/api/cookies', cookiesRouter);
 app.use('/api/session', sessionRoutes);
 
 const io = new Server(server);
 
 io.on('connection', (socket) => {
-  console.log('Saludo desde el servidor');
   socket.on('message', (data) => {
     console.log(data);
   });
