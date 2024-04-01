@@ -1,19 +1,12 @@
 import { Router } from 'express';
 import userModel from '../models/user.model.js';
+import SessionController from '../controllers/session.controller.js';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  // Si al conectarse la sesion ya existe ,entocnes aumentar el contador
-  if (req.session.counter) {
-    req.session.counter += 1;
-    res.send(`Se ha visitado el sitio ${req.session.counter} veces`);
-  } else {
-    // Si no hay una sesion para el usuario, entonces inicializar en 1
-    req.session.counter = 1;
-    res.send('Bienvenido');
-  }
-});
+const sessionController = new SessionController();
+
+router.get('/', sessionController.getSession);
 
 router.post('/register', async (req, res) => {
   try {
