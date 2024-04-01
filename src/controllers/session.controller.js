@@ -30,6 +30,22 @@ class SessionController {
       return res.status(500).json({ message: 'There was an error registering the user' });
     }
   };
+
+  LoginUser = async (req, res) => {
+    try {
+      const { email, password } = req.body;
+
+      const findUser = await this.sessionService.findUserByEmail(email);
+
+      if (!findUser) return res.status(401).json({ message: 'Usuario no registrado o existente' });
+
+      if (findUser.password !== password) return res.status(401).json({ message: 'Contraseña incorrecta' });
+
+      return res.redirect('/products');
+    } catch (error) {
+      return res.status(401).json({ message: 'Error al entrar al login' });
+    }
+  };
 }
 
 export default SessionController;

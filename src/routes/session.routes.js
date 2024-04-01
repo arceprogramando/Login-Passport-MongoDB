@@ -10,39 +10,7 @@ router.get('/', sessionController.getSession);
 
 router.post('/register', sessionController.registerUser);
 
-router.post('/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const findUser = await userModel.findOne({ email });
-
-    if (!findUser) {
-      return res.status(401).json({ message: 'Usuario no registrado o existente' });
-    }
-
-    if (findUser.password !== password) {
-      return res.status(401).json({ message: 'Contraseña incorrecta' });
-    }
-
-    if (email === 'adminCoder@coder.com' && password === 'adminCod3r123') {
-      req.session.user = {
-        ...findUser,
-        password: '',
-        admin: true,
-      };
-    } else {
-      req.session.user = {
-        ...findUser,
-        password: '',
-        admin: false,
-      };
-    }
-
-    return res.redirect('/products');
-  } catch (error) {
-    return res.status(401).json({ message: 'Error al entrar al login' });
-  }
-});
+router.post('/login', sessionController.LoginUser);
 
 router.get('/welcome', async (req, res) => {
   const { name } = req.query;
