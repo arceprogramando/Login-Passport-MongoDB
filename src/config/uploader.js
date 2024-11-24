@@ -5,10 +5,10 @@ import __dirname from '../utils.js';
 const uploadPath = join(__dirname, 'public', 'upload');
 
 const storage = multer.diskStorage({
-  destination(req, file, cb) {
+  destination(_req, _file, cb) {
     cb(null, uploadPath);
   },
-  filename(req, file, cb) {
+  filename(_req, file, cb) {
     cb(null, file.originalname);
   },
 });

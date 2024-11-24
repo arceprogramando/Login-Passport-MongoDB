@@ -2,11 +2,11 @@ import mongoose from 'mongoose';
 import configObject from '../../../config/config.js';
 
 const {
-  DB_CNN, DB_HOST, DB_PORT, DB_NAME,
+  DB_CNN, DB_HOST, DB_NAME,
 } = configObject;
 
 const configConnection = {
-  url: `${DB_CNN}${DB_NAME}` ?? `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+  url: `${DB_CNN}${DB_NAME}` ?? `mongodb://${DB_HOST}/${DB_NAME}`,
   options: {
     useNewUrlParser: true,
     useUnifiedTopology: true,
